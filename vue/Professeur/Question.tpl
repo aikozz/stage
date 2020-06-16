@@ -44,13 +44,30 @@
 
 
         <script>
-        var clicks = 0;
+		var clicks = 0;
+		var idquest = "question" + clicks;
+		var idpos="pos" +clicks;
+		
         function add_fields() {
-        
-    document.getElementById('wrapper').innerHTML += '<span>Questions: <input type="text" ></span>        <span>position: <input type="text" ></span>    	<fieldset class="filet"> <input type= "radio"  name="modee" value="madame" checked="checked"/> coché   <input type= "radio"  name="modee" value="monsieur"/> libre </fieldset></br>';
-    clicks += 1;
-        document.getElementById("nombre").innerHTML = clicks;
-}
+			var quest = document.createElement('span');
+			quest.id = idquest;
+			quest.innerHTML='<span>Questions: <input type="text" ></span>'
+			document.getElementById('wrapper').appendChild(quest);
+			var pos = document.createElement('span');
+			pos.id=idpos;
+			pos.innerHTML = '<span>position: <input type="text" ></span>';
+			document.getElementById('wrapper').appendChild(pos);
+			var rad = document.createElement('fieldset');
+			rad.name="rad"+clicks;
+			rad.innerHTML = ' <input type= "radio" class="hi"   value="madame" /> coché   ';
+			document.getElementById('wrapper').appendChild(rad);
+			var radd = document.createElement('fieldset');
+			radd.name ="rad"+clicks;
+			radd.innerHTML = '   <input type= "radio" class="ho"  value="monsieur"/> libre </br>';
+			document.getElementById('wrapper').appendChild(radd);
+			clicks += 1;
+        	document.getElementById("nombre").innerHTML = clicks;
+		}
 function add_fieldss() {
         
         document.getElementById('wrapper').innerHTML += '<span>Titre de la (sous-)partie  <input type="text" ></span>  <span>position: <input type="text" ></span>   </br>';

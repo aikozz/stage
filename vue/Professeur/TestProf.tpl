@@ -26,58 +26,6 @@
 	</nav> 
 	<!-- fin du menu nav -->
 
-	<div class="container" id="carte">
-		<div class="row align-items-center" >
-            <?php
-                if($test != false){
-                    foreach($test as $th){                  	
-                        setlocale(LC_TIME, "fr_FR", "French");									
-                        echo ' 
-                        <div class="col-sm" style="margin-bottom:5%;">
-                            <div class="card" style="width: 20rem;">
-								<img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" class="card-img-top" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">'.utf8_encode ($th['titre_theme']).'</h5>
-									<p class="card-text">'.utf8_encode ($th['num_grpe']).'</p>
-									<p class="card-text">Date test : '.utf8_encode (strftime("%d %B %G", strtotime($th['date_test']))).'</p>
-
-									<form method="POST" action="index.php?controle=Professeur&action=getquestion" >															
-										<input name="id" type="hidden" value="'.$th['id_theme'].'">
-										<input class="btn btn-outline-secondary btn-lg btn-block" type="submit" name="Afficher" value="Afficher les questions" >											
-									</form>
-
-									<form method="POST" action="index.php?controle=Professeur&action=setEtatTest" >				
-										<input name="idq" type="hidden" value="'.$th['id_test'].'">
-										<fieldset class="filet" style="margin-top: 3%;">
-											<input class="btn btn-outline-success btn-lg btn-block" type= "submit"  name="mode" value="Lancer le test" />
-											<input class="btn btn-outline-danger btn-lg btn-block" type= "submit"  name="mode" value="Arrêter le test"/> 
-										</fieldset>
-                                    </form>
-									';
-									if($th['bActif']==1){
-										echo '
-											<p class="card-text">Etat : en cours <i class="fa fa-check" style="color:green;margin-top: 3%;"></i></p>
-										';
-									}else if($th['bActif']==0){
-										echo '
-										<p class="card-text">Etat : Fin <i class="fa fa-times" style="color:red;margin-top: 3%;"></i></p>
-										';
-									}
-									echo'	
-								</div>
-                            </div>
-                        </div>
-						';
-                    }			
-                }else{
-                    echo '
-                        <h1> Pas de Test pour ce prof</h1>
-                    ';
-                }
-						
-								
-			?>
-		</div>
-	</div>
+	<button> <a href="index.php?controle=Professeur&action=creation"></button>
 </body>
 </html>
