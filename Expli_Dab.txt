@@ -1,0 +1,7 @@
+//$questionTheme = array();
+	/*foreach ($Qcm as $theme) {
+		$resultat = getlisteQuestion_bdParTheme($theme["id_theme"]);
+		$questionTheme[$theme["id_theme"]] =$resultat;
+		//require("./vue/Professeur/ListeQuestion.tpl");
+	}*/
+	//var_dump($questionTheme);

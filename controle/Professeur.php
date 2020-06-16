@@ -23,7 +23,24 @@ function getTestProf(){
 function getquestion(){
 require("./vue/Professeur/Question.tpl");
 }
+function creertest(){
+	require("./vue/Professeur/accueilProfesseur.tpl");
+	require('./modele/ProfesseurBD.php');
 
+	$nb=  isset($_POST['nombre'])?($_POST['nombre']):'';
+
+	for(i=0;i<nb; ++i){
+
+$nom=  isset($_POST[''])?($_POST['nomm']):'';
+	$nom=  isset($_POST[''])?($_POST['nomm']):'';
+	$num=  isset($_POST['email'])?($_POST['email']):'';
+	$mode= isset($_POST['modee'])?($_POST['modee']):''; 
+
+	}
+	
+
+
+}
 function setA_B_V_Question(){
 	global $nom, $prenom;
 	require('./modele/ProfesseurBD.php');

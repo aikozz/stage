@@ -35,7 +35,7 @@ function ident() {
 function add(){
 	$nom=  isset($_POST['nomm'])?($_POST['nomm']):'';
 	$num=  isset($_POST['email'])?($_POST['email']):'';
-	$mode= isset($_POST['modee'])?($_POST['modee']):'';
+	$mode= isset($_POST['modee'])?($_POST['modee']):''; 
 	$msg='';
 	$prenom= isset($_POST['prenomm'])?($_POST['prenomm']):'';
 	$ident = isset($_POST['userr'])?($_POST['userr']):'';
@@ -52,7 +52,7 @@ function add(){
 		else{
 			
 			if(!enregistrer($nom,$prenom,$num,$mode,$ident,$pass)){
-				die("test");
+				
 				$msg = "Le login est déjà utilisé veuillez changer";
 				require ("./vue/utilisateur/ident.tpl") ;
 			}

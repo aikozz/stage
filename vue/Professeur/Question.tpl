@@ -32,10 +32,11 @@
         <div class="container">
         <input type="button" id="more_fields" onclick="add_fields();" value="Add More" />
         <input type="button" id="more_fields" onclick="add_fieldss();" value="ajouter sous partie " />
+		<input type="button"  href="index.php?controle=professeur&action=creertest" value="enregistrer " />
 <div id="room_fileds">
-    <div class="content" id="wrapper"> 
-        <p id = "nombre"></p> </br> <p> question(s) crée(s)</p>
-    </div>
+    <form class="content" id="wrapper" method="post"> 
+        <p id = "nombre" ></p> </br> <p> question(s) crée(s)</p>
+    </form>
 </div>
 
         </div>
@@ -47,26 +48,24 @@
 		var clicks = 0;
 		var idquest = "question" + clicks;
 		var idpos="pos" +clicks;
-		
+		var radid = "rad" +clicks;
         function add_fields() {
 			var quest = document.createElement('span');
-			quest.id = idquest;
-			quest.innerHTML='<span>Questions: <input type="text" ></span>'
+			
+			quest.innerHTML='<span>Questions: <input id=idquest type="text" ></span>'
 			document.getElementById('wrapper').appendChild(quest);
 			var pos = document.createElement('span');
-			pos.id=idpos;
-			pos.innerHTML = '<span>position: <input type="text" ></span>';
+
+			pos.innerHTML = '<span>position: <input id=idpos type="text" ></span>';
 			document.getElementById('wrapper').appendChild(pos);
-			var rad = document.createElement('fieldset');
-			rad.name="rad"+clicks;
-			rad.innerHTML = ' <input type= "radio" class="hi"   value="madame" /> coché   ';
+			var rad = document.createElement('select');
+			
+			rad.innerHTML = ' <select name="typeCompte" id=radid  class="form-control"> <option id="libre" value="libre">Client</option> <option id="coche" value="coche">Livreur</option> </select></br> ';
 			document.getElementById('wrapper').appendChild(rad);
-			var radd = document.createElement('fieldset');
-			radd.name ="rad"+clicks;
-			radd.innerHTML = '   <input type= "radio" class="ho"  value="monsieur"/> libre </br>';
-			document.getElementById('wrapper').appendChild(radd);
+			
 			clicks += 1;
-        	document.getElementById("nombre").innerHTML = clicks;
+			document.getElementById("nombre").innerHTML = clicks;
+			
 		}
 function add_fieldss() {
         
@@ -75,6 +74,8 @@ function add_fieldss() {
             document.getElementById("nombre").innerHTML = clicks;
     }
 </script>
+
+<form action="../controleur" method="post">
 
 
    
